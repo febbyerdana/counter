@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>PPI Madiun - Counter</title>
+	
+	<link href="//fonts.googleapis.com/css?family=Iceberg" rel="stylesheet">
+    <link href="dist/jquery-ui.css" rel="stylesheet">   
+
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/jquery-ui.min.js"></script>
+    <script src="dist/knockout-2.2.1.js"></script>
+    
+    <script src="dist/sevenSeg.js"></script>
+    <script>
+        function sevenSeg(number){
+            $("#angka").sevenSeg({
+                digits: 2,
+                value: number 
+            });
+        }
+
+        $(function(){
+            sevenSeg(0);
+            var numb = 0;
+            document.body.onkeyup = function(e) {
+                if (e.key == " " || e.code == "Space" || e.keyCode == 32){
+                    numb++;
+                    sevenSeg(numb);
+                }
+                if (e.key == 'Enter' || e.code == "Enter" || e.keyCode == 13){
+                    location.reload();
+                }
+            }
+        });
+
+    </script>
+
+    <style>
+        *{
+            height: 100%;
+        }
+
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="angka"></div>
+</body>
+</html>
